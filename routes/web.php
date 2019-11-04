@@ -32,3 +32,11 @@ Route::post('/customer_post', 'CustomerController@input_customer')->name('input_
 Route::get('/order', 'OrderController@index');
 Route::post('/order_post', 'OrderController@input_order')->name('input_order');
 // Route::get('/order', 'OrderController@input_order');
+
+Route::get('/inventory', 'InventoryController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/barang', 'BarangController@index');
+Route::post('/barang_post', 'BarangController@input_barang')->name('input_barang');
