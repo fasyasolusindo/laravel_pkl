@@ -40,3 +40,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/barang', 'BarangController@index');
 Route::post('/barang_post', 'BarangController@input_barang')->name('input_barang');
+
+
