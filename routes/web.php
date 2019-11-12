@@ -39,3 +39,15 @@ Route::get('/orders', 'OrdersController@index');
 Route::post('/orders_post', 'OrdersController@input_orders')->name('input_orders');
 
 //input ke db tanpa form -> Route::get('/orders', 'OrdersController@input_orders');
+
+//-----------------------------------------------------------------------//
+
+//untuk menuju halaman index atau default dan memasukan data ke database
+Route::get('/input_penawaran', 'PenawaranController@index');
+Route::post('/penawaran_post', 'PenawaranController@input_penawaran')->name('input_penawaran');
+Route::get('/input_penawaran/cetak_pdf', 'PenawaranController@cetak_pdf');
+//-----------------------------------------------------------------------//
+
+//untuk menuju halaman index atau default 
+Route::get('/baper', 'BaperController@index');
+Route::post('/baper_post', 'BaperController@input_baper')->name('input_baper');

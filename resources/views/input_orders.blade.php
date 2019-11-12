@@ -11,7 +11,7 @@
           </div>
           <div class="form-group">
               <label for="item">ID Produk</label>
-              <input type="text" class="form-control" name="id_produk">
+              <input type="number" class="form-control" name="id_produk">
           </div>
           <div class="form-group">
               <label for="item">Jumlah</label>
