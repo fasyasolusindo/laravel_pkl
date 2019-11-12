@@ -41,4 +41,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/barang', 'BarangController@index');
 Route::post('/barang_post', 'BarangController@input_barang')->name('input_barang');
 
+Route::get('/aset', 'AsetController@index');
+Route::post('/aset_post', 'AsetController@input_aset')->name('input_aset');
 
+Route::get('/inventory/{id}/edit', 'InventoryController@edit');
+Route::post('/inventory/{id}/update', 'InventoryController@update');
+Route::get('/inventory/{id}/delete', 'InventoryController@delete');
+
+Route::get('/kategori', 'KategoriController@index');

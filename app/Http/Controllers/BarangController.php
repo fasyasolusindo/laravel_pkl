@@ -18,6 +18,7 @@ class BarangController extends Controller
         $barang->nama_barang = $request->nama_barang;
         $barang->jumlah_barang = $request->jumlah_barang;
         $barang->harga_barang = $request->harga_barang;
+        $barang->kategori = $request->kategori;
         $barang->save();
         return "Barang berhasil diinput";
         

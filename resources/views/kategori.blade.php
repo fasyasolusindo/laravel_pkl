@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -313,85 +313,46 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Daftar Barang</h3>
+                <h3 class="card-title">Daftar Kategori</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-head-fixed table-hover">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="form-control select2">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                </div>
+                <table class="table table-head-fixed table-hover">
                   <thead class="text-center">
                     <tr>
                       <th style="width: 10%">ID</th>
-                      <th style="width: 20%">Nama Barang</th>
-                      <th style="width: 10%">Stok</th>
-                      <th style="width: 20%">Harga</th>
-                      <th style="width: 20%"></th>
+                      <th style="width: 20%">Kategori</th>
+                      <th style="width: 10%">Nama Barang</th>
+                      <th style="width: 20%">Jumlah Barang</th>
+                      <th style="width: 20%">Gambar</th>
                     </tr>
                   </thead>
                   <tbody class="text-center">
-                    @foreach($inventory as $inv)
+                    @foreach($kategori as $a)
                     <tr>
-                      <td>{{ $inv->id }}</td>
-                      <td>{{ $inv->nama_barang }}</td>
-                      <td>{{ $inv->jumlah_barang }}</td>
-                      <td>{{ number_format($inv->harga_barang, 2,",",".") }}</td>
-                      <td class="project-actions text-center">
-                          <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default" href="/inventory/{{ $inv->id }}/edit">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="/inventory/{{ $inv->id }}/delete" onclick="return confirm('hapus data?')">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
+                      <td>{{ $a->id }}</td>
+                      <td>{{ $a->kategori }}</td>
+                      <td>{{ $a->nama_aset }}</td>
+                      <td>{{ $a->jumlah_aset }}</td>
+                      <td><img src="{{ asset('img/data/' . $a->img) }}" width="100px;" height="100px;" alt="img"></td>
                     </tr>
-                    <div class="modal fade" id="modal-default">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Edit Data</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <form action="/inventory/{{$inv->id}}/update" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                        <div class="modal-body">
-                        <label class="control-label" for="item">Nama Barang</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="nama_barang" value="{{ $inv->nama_barang }}">
-                        </div>
-                      </div>
-                      <div class="modal-body">
-                        <label class="control-label" for="item">Jumlah Barang</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="jumlah_barang" value="{{ $inv->jumlah_barang }}">
-                        </div>
-                      </div>
-                      <div class="modal-body">
-                        <label class="control-label" for="item">Harga Barang</label>
-                        <div class="col-sm-10">          
-                          <input type="number" class="form-control" name="harga_barang" value="{{ $inv->harga_barang }}">
-                        </div>
-                      </div>                          
-                        <div class="modal-footer justify-content-between">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                          <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
-                        </div>
-                      </div>
-                      <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                  </div>
-                  <!-- /.modal -->
                     @endforeach
                   </tbody>
                 </table>
-              </div>
+                </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -427,11 +388,10 @@
 <script src="js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
-<script src="plugins/datatables/jquery.dataTables.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script src="plugins/select2/js/select2.full.min.js"></script>
 <script>
   $(function () {
-    $('#example1').DataTable();
+    $('.select2').select2()
   });
 </script>
 </body>
