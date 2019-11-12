@@ -57,16 +57,9 @@
           <tr>
             <td class="no">{{ $i++ }}</td>
             <td class="desc"><h3>{{$p->barang}}</h3>{{$p->keterangan}}</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">{{$p->quantity}}</td>
-            <?php
-                               if(isset($_POST['hitung'])){
-                               $harga = $_POST['harga_barang'];
-                               $qty = $_POST['quantity'];
-                               $total = $harga*$qty;
-                               echo "
-                               
-            <td>$total</td>";} ?>
+            <td class="unit">{{$p->harga_barang}}</td>
+            <td class="qty">{{$p->quantity}}</td>                    
+            <td class="total">{{$p->total}}</td>
             @endforeach
           </tr>
          
@@ -229,7 +222,7 @@ table .unit {
 table .qty {
 }
 
-table .grand{
+table .total{
   background:  #4da6ff;
   color: #FFFFFF;
 }

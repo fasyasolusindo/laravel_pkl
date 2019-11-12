@@ -23,10 +23,11 @@ class PenawaranController extends Controller
             $penawaran->barang = $request->barang;
             $penawaran->harga_barang = $request->harga_barang;
             $penawaran->quantity = $request->quantity;
+            $penawaran->total = $request->harga_barang * $request->quantity;
             $penawaran->keterangan = $request->keterangan; 
             $penawaran->save();
             return ('<img src="../../img/FPS.png">');
-
+            
     }
          public function cetak_pdf()
     {

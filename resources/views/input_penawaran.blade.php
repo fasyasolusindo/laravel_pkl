@@ -740,7 +740,7 @@
                 
 
                   <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-3">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Pilih barang</label>
@@ -749,10 +749,10 @@
                     <option value="{{ $inv->nama_produk }}">{{ $inv->nama_produk}}</option>
                     @endforeach
                  </select>
-                     </div></div></div>
+                     </div>
+                   </div>
 
-                     <div class="row">
-                    <div class="col-sm-5">
+                     <div class="col-sm-3">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Harga</label>
@@ -761,72 +761,88 @@
                     <option value="{{ $inv->harga_produk }}">{{ $inv->harga_produk}}</option>
                     @endforeach
                  </select>
-                      </div>
-                    </div>
+                     </div>
+                   </div>
 
-                    <div class="col-sm-3">
+                     <div class="col-sm-3">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Quantity</label>
-                        <input type="number" class="form-control" placeholder="Enter ..." name="quantity">
-                      </div>
-                    
+                         <label>Quantity</label>
+                        <input type="number" class="form-control" placeholder="Enter ..." name="quantity" id="quantity">
+                     </div>
                    </div>
-                  <!--------------------------------->
-                  
-                    
-                   
+                 
+                  <!-------------DYNAMIC FORM-------------------->
+                  <div class="d-none field">
 
-            <!-----------------------------DYNAMIC ADD --------------------------------> 
-                   <div class="row">
-                    <div class="col-sm-5">
-                      <!-- text input -->
-                      <div class="field" style="display: none">
+                  <div class="row">
+                    <div class="col-sm-3">
                         <label>Pilih barang</label>
-                        <select class="form-control select2Copy" id="harga_barang" name="barang"  data-placeholder="Pilih Barang">
+                        <select class="form-control select2Copy" name="barang"  data-placeholder="Pilih Barang">
                     @foreach($inventory as $inv)
                     <option value="{{ $inv->nama_produk }}">{{ $inv->nama_produk}}</option>
                     @endforeach
                  </select>
-
-                        <label>Harga Barang</label>
-                        <select class="form-control select2Copy" readonly="readonly" name="harga_barang"  data-placeholder="Harga Barang">
+                    </div>
+                 </div>
+                     
+                     <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Harga</label>
+                        <select class="form-control select2Copy" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang">
                     @foreach($inventory as $inv)
                     <option value="{{ $inv->harga_produk }}">{{ $inv->harga_produk}}</option>
                     @endforeach
                  </select>
-                      
-                    
-
-                    <div class="col-sm-8">
+                     </div>
+                   </div>
+                     <div class="col-sm-3">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Quantity</label>
-                        <input type="number" class="form-control" placeholder="Enter ..." >
-                      </div>
+                         <label>Quantity</label>
+                        <input type="number" class="form-control" placeholder="Enter ..." name="quantity">
+                     </div>
+                 </div>
                     
-                   </div>
+                   
+
+  
+
                    <!--------------------TOMBOL DELETE------------------->
-                   <a href="javascript:void(0);"button type="button" name="add" id="remove" class="btn btn-danger" title="Add field"><i class="fas fa-minus"></i></button></a> </div></div></div></div></div></div>
+                   <a href="javascript:void(0);"button type="button" name="add" id="remove" class="btn btn-danger" title="Add field"><i class="fas fa-minus"></i></button></a> 
+                 </div>
+                 </div>
+               </div>
+             </div>
             <!--------------------------TOMBOL ADD------------------------------->  
-            <a href="javascript:void(0);"button type="button" name="add" id="add_button" class="btn btn-success back-to-top" style="margin-bottom: 32.5%; margin-right:-0%; position: absolute;"><i class="fas fa-plus"></a></i></button></a>
+            <a href="javascript:void(0);"button type="button" name="add" id="add_button" class="btn btn-success back-to-top" style="margin-bottom: 46%; margin-right:-0%; position: absolute;"><i class="fas fa-plus"></a></i></button></a>
                     
-               <!------------------------------------------------------------->   
+               <!-------------------------------------------------------------> 
+              <div class="row">
+                <div class="col-sm-5">
+                      <!-- textfield -->
+                      <div class="form-group">
+                        <label>Total Harga</label>
+                        <output class="form-control" rows="3" placeholder="" name="total"></output>
+                      </div>
+                       <a href><button name="hitung" id="hitung" class="btn btn-warning">Hitung</button></a>
+               </div>
+              </div>
                     
                   <div class="row">
                     <div class="col-sm-11">
                       <!-- textfield -->
                       <div class="form-group">
                         <label>Keterangan</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="keterangan"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Tambah Keterangan ..." name="keterangan"></textarea>
                       </div>
                     </div>
                     </div>
-                 
+                  
                   
                 <!------------TOMBOL FOOTER--------->
                       
-                      <button type="submit" name="hitung" id="btSubmit" class="btn btn-primary" ">Checkout</button></a>
+                      <button type="submit" name="btSubmit" id="btSubmit" class="btn btn-primary" ">Checkout</button>
                        <a href="/input_penawaran/cetak_pdf" target="_blank" class="btn btn-danger float-right"><i class="fas fa-download"></i> Simpan PDF
                   </button></a>
                 </div>

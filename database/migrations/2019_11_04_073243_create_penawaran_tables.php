@@ -19,6 +19,7 @@ class CreatePenawaranTables extends Migration
             $table->string('barang');
             $table->integer('harga_barang');
             $table->integer('quantity');
+            $table->double('total');
             $table->string('keterangan');
             $table->timestamps();
         });
