@@ -49,3 +49,5 @@ Route::post('/inventory/{id}/update', 'InventoryController@update');
 Route::get('/inventory/{id}/delete', 'InventoryController@delete');
 
 Route::get('/kategori', 'KategoriController@index');
+
+Route::get('/kategori/{id}/detail', 'KategoriController@detail');

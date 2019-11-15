@@ -14,4 +14,9 @@ class KategoriController extends Controller
         return view('kategori', compact('kategori'));
     }
 
+    public function detail($id){
+        $test = Aset::find($id);
+        return view('detail',['test' => $test]);
+    }
+
 }

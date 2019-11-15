@@ -18,7 +18,7 @@ class CreateTableBarang extends Migration
             $table->string('nama_barang');
             $table->integer('jumlah_barang');
             $table->double('harga_barang');
-            $table->foreign('kategori')->references('kategori')->on('aset');
+            $table->foreign('kategori');
             $table->timestamps();
         });
     }

@@ -343,10 +343,12 @@
                   <tbody class="text-center">
                     @foreach($kategori as $a)
                     <tr>
-                      <td>{{ $a->id }}</td>
-                      <td>{{ $a->kategori }}</td>
-                      <td>{{ $a->nama_aset }}</td>
-                      <td>{{ $a->jumlah_aset }}</td>
+                      @foreach ($a->barang as $b)
+                      <td>{{ $b->id }}</td>
+                      <td><a href="/kategori/{{$b->aset_id}}/detail">{{ $b->kategori }}</td>
+                      <td>{{ $b->nama_barang }}</td>
+                      <td>{{ $b->jumlah_barang }}</td>
+                      @endforeach
                       <td><img src="{{ asset('img/data/' . $a->img) }}" width="100px;" height="100px;" alt="img"></td>
                     </tr>
                     @endforeach
