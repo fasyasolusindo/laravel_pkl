@@ -21,7 +21,9 @@
       <div id="details" class="clearfix">
         <div id="client">
           <div class="to">INVOICE TO:</div>
-          <h2 class="name">Yasin</h2>
+          @foreach($penawaran as $p)
+          <h2 class="name">{{$p->nama_customer}}</h2>
+          @endforeach 
           <div class="address">796 Silver Harbour, TX 79273, US</div>
           <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
         </div>

@@ -15,7 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
 
-<script src="repeater.js" type="text/javascript"></script>
+
+
  
  <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -35,7 +36,6 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -737,14 +737,14 @@
                       </div>
                     
                    
-                
+                <div class="education_fields"></div>
 
                   <div class="row">
                     <div class="col-sm-3">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Pilih barang</label>
-                        <select class="form-control select2" name="barang"  data-placeholder="Pilih Barang">
+                        <select class="form-control select2" id="pilih_barang" name="barang"  data-placeholder="Pilih Barang">
                     @foreach($inventory as $inv)
                     <option value="{{ $inv->nama_produk }}">{{ $inv->nama_produk}}</option>
                     @endforeach
@@ -753,24 +753,19 @@
                    </div>
 
                      <div class="col-sm-3">
-                      <!-- text input -->
                       <div class="form-group">
                         <label>Harga</label>
-                        <select readonly="readonly" class="form-control select2" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang">
-                    @foreach($inventory as $inv)
-                    <option value="{{ $inv->harga_produk }}">{{ $inv->harga_produk}}</option>
-                    @endforeach
-                 </select>
+                        <input type="text"  class="form-control select2" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang" readonly="readonly" disabled="" >
+                        </input>
+                      </div>
                      </div>
-                   </div>
 
                      <div class="col-sm-3">
-                      <!-- text input -->
                       <div class="form-group">
                          <label>Quantity</label>
                         <input type="number" class="form-control" placeholder="Enter ..." name="quantity" id="quantity">
-                     </div>
-                   </div>
+                      </div>
+                    </div>
                  
                   <!-------------DYNAMIC FORM-------------------->
                   <div class="d-none field">
@@ -790,9 +785,7 @@
                       <div class="form-group">
                         <label>Harga</label>
                         <select class="form-control select2Copy" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang">
-                    @foreach($inventory as $inv)
-                    <option value="{{ $inv->harga_produk }}">{{ $inv->harga_produk}}</option>
-                    @endforeach
+                   
                  </select>
                      </div>
                    </div>
@@ -800,7 +793,7 @@
                       <!-- text input -->
                       <div class="form-group">
                          <label>Quantity</label>
-                        <input type="number" class="form-control" placeholder="Enter ..." name="quantity">
+                        <input type="number" class="form-control" placeholder="Enter ..." >
                      </div>
                  </div>
                     
@@ -815,7 +808,7 @@
                </div>
              </div>
             <!--------------------------TOMBOL ADD------------------------------->  
-            <a href="javascript:void(0);"button type="button" name="add" id="add_button" class="btn btn-success back-to-top" style="margin-bottom: 46%; margin-right:-0%; position: absolute;"><i class="fas fa-plus"></a></i></button></a>
+            <a href="javascript:void(0);"button type="button" onclick="education_fields();" name="add" id="add_button" class="btn btn-success back-to-top" style="margin-bottom: 53%; margin-right:-0%; position: absolute;"><i class="fas fa-plus"></a></i></button></a>
                     
                <!-------------------------------------------------------------> 
               <div class="row">
@@ -823,9 +816,9 @@
                       <!-- textfield -->
                       <div class="form-group">
                         <label>Total Harga</label>
-                        <output class="form-control" rows="3" placeholder="" name="total"></output>
+                        <output class="form-control" rows="3" placeholder="" name="total_harga" id="total_harga"></output>     
                       </div>
-                       <a href><button name="hitung" id="hitung" class="btn btn-warning">Hitung</button></a>
+                       <a href="javascript:void(0);"><button name="hitung" id="hitung" class="btn btn-warning">Hitung</button></a>
                </div>
               </div>
                     
@@ -852,7 +845,7 @@
         </div>
       </div>
   </div>
-              <!--------- /.card-body ------------->
+              <!-------------/card-body ------------->
               
                 
                  
@@ -876,6 +869,45 @@
 @endsection
 
 @section('footer')
+<!--------------------AUTOFILL----------------->
+<script type="text/javascript">
+  $('#pilih_barang').change(function() {
+  $.ajax({
+    url: '/Produk/' + $(this).val(),
+    type: 'get',
+    response: {},
+    success: function(response) {
+      if (response.success == true) {
+        $('#pilih_barang').value = response.fill;
+      } else {
+        alert('Cannot find price');
+      }
+
+    },
+    error: function(jqXHR, textStatus, errorThrown) {}
+  });
+  $('#harga_barang').show();
+});
+</script>
+
+<!---------------------------------------------TOTALSUM---------------------------------------------------------------
+$(document).ready(function() {
+
+  $('.addition').on('keyup', '.price', function() {
+    var total = 0
+    $('.addition > .price').each(function() {
+      var currentValue = parseInt($(this).val(), 10);
+      if (!isNaN(currentValue)) {
+        total += currentValue;
+      }
+    });
+    $(".total").val(total);
+  });
+  $('.add').click(function() {
+    $("<input type='text' class='price'>").appendTo($('.addition'));
+  });
+})
+------------------------------------------------------------------------------------------------------------------>
 <script type="text/javascript">
    $(function () {
     //Initialize Select2 Elements

@@ -45,6 +45,9 @@ Route::post('/orders_post', 'OrdersController@input_orders')->name('input_orders
 //untuk menuju halaman index atau default dan memasukan data ke database
 Route::get('/input_penawaran', 'PenawaranController@index');
 Route::post('/penawaran_post', 'PenawaranController@input_penawaran')->name('input_penawaran');
+
+Route::get('/Produk/{id}', 'PenawaranController@getInfo');
+
 Route::get('/input_penawaran/cetak_pdf', 'PenawaranController@cetak_pdf');
 //-----------------------------------------------------------------------//
 

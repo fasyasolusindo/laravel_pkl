@@ -9,12 +9,11 @@ class Penawaran extends Model
         protected $table = "penawaran";
     protected $fillable = ['nama_customer','barang','harga_barang','quantity','total','keterangan'];
     
-    //public function getTotalPrice() {
-    //return $this->buyDetails()->sum(DB::raw('quantity * harga_produk'));
-  //}
+     protected $appends =['total_harga'];
 
-    public function detailpenawaran() { 
-      return $this->hasOne('App\DetailPenawaran'); 
-}
+   		 public function getTotalPriceAttribute()
+    {
+        return $this->harga_barang * $this->quantity;
+    }
 
 }
