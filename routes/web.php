@@ -52,5 +52,9 @@ Route::get('/input_penawaran/cetak_pdf', 'PenawaranController@cetak_pdf');
 //-----------------------------------------------------------------------//
 
 //untuk menuju halaman index atau default 
-Route::get('/baper', 'BaperController@index');
-Route::post('/baper_post', 'BaperController@input_baper')->name('input_baper');
+Route::get('/login1', 'LoginController@index');
+Route::get('/register1', 'ContohController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

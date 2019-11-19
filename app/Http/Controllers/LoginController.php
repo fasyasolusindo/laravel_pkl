@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Order;
 
-class ContohController extends Controller
+class LoginController extends Controller
 {
     //
 
@@ -14,7 +14,7 @@ class ContohController extends Controller
     	//
     	
     	$tes = 'uyii';
-    	return view('register1');
+    	return view('login1');
 
     }
 } 

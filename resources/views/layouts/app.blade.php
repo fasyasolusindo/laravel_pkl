@@ -1,27 +1,24 @@
-@extends ('layout')
-
-@section('content')
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Fasyasolusindo.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <!---------------------SCRIPTTTTTTTTTTTTT-------->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Scripts -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
-
-
- 
  <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!--add button-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Select2 -->
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -35,18 +32,42 @@
   <link rel="stylesheet" href="../css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+ <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!--add button-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Select2 -->
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
+
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-green navbar-light">
-    <!-- Left navbar links -->
+    <div class="wrapper">
+    <div id="app">
+        <nav class="main-header navbar navbar-expand navbar-blue navbar-light" style="border-color: transparent;">
+             <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -163,28 +184,65 @@
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+
+            <!-- Brand Logo -->
+    <a href="{{ url('/')}}" class="brand-link">
       <img src="../../img/FPS.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-bold">Fasya Pratama</span>
-    </a>
+                <span class="brand-text font-weight-bold">
+                    {{ config('app.', 'Fasya Pratama') }}
+                </a></span>
 
-    <!-- Sidebar -->
+        <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
+              <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Mohammad Yasin</a>
-        </div>
-      </div>
 
-      <!-- Sidebar Menu -->
+
+               <!-----------------------------------------------------------------
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    ------------------------------------------------------------->
+         <div class="image">
+          <img src="../../img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+         </div>
+            <div class="info">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                                <a  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a><br>
+
+                              
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                              
+                        @endguest
+                    </div>
+                </div>
+            
+
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -241,16 +299,17 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item">
             <a href="home" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="navv-icon fas fa-home"></i>
               <p>
                 Dashboard
+
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Forms
@@ -259,7 +318,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="input_penawaran" class="nav-link active">
+                <a href="input_penawaran" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Form Penawaran</p>
                 </a>
@@ -307,250 +366,58 @@
               </li>
             </ul>
           </li>
+             <li class="nav-item">
+                 <a href="{{ route('register') }}" class="nav-link">
+              <i class="navv-icon fas fa-user-plus"></i>
+              <p>
+                 @if (Route::has('register'))
+                           Register
+                        @endif
+              </p>
+          </a>
+          </li>
 
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
-   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Form Penawaran</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Form Penawaran</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-  <div class="content-wrapper">
 
-
-          <!--/.col (left) -->
-          <div class="container-fluid">
-          <!-- right column -->
-          <div class="col-md-9">
-            <!-- general form elements disabled -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Penawaran Barang</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form role="form" action="/penawaran_post" method="post">
-                  <div class="row">
-                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="col-sm-10">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Nama Customer</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="nama_customer">
-                      </div>
-                    
-                   
-               
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Pilih barang</label>
-                        <select class="form-control select2" id="pilih_barang" name="barang"  data-placeholder="Pilih Barang">
-                    @foreach($inventory as $inv)
-                    <option value="{{ $inv->nama_produk }}">{{ $inv->nama_produk}}</option>
-                    @endforeach
-                 </select>
-                     </div>
-                   </div>
-
-                     <div class="col-sm-3">
-                      <div class="form-group">
-                        <label>Harga</label>
-                        <input type="text"  class="form-control" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang" readonly="readonly" disabled="" >
-                        </input>
-                      </div>
-                     </div>
-
-                     <div class="col-sm-3">
-                      <div class="form-group">
-                         <label>Quantity</label>
-                        <input type="number" class="form-control formbaru" placeholder="Enter ..." name="quantity" id="quantity">
-                      </div>
-                    </div>
-                   <div class="col-sm-3">
-                      <div class="form-group" style="display: none;">
-                         <label>SUM</label>
-                        <td class="form-control formbaru" placeholder="Enter ..." name="sum" id="sum">
-                      </div>
-                    </div>
-                 
-                  <!-------------DYNAMIC FORM-------------------->
-                  <div class="d-none field">
-
-                  <div class="row">
-                    <div class="col-sm-4">
-                        <label>Pilih barang</label>
-                        <select class="form-control select2Copy" name="barang" id="pilih_barang" data-placeholder="Pilih Barang">
-                    @foreach($inventory as $inv)
-                    <option value="{{ $inv->nama_produk }}">{{ $inv->nama_produk}}</option>
-                    @endforeach
-                 </select>
-                    </div>
-                     
-                     <div class="col-sm-3">
-                      <div class="form-group">
-                        <label>Harga</label>
-                        <select class="form-control select2Copy" id="harga_barang" name="harga_barang" data-placeholder="Harga Barang">
-                   
-                 </select>
-                     </div>
-                   </div>
-                     <div class="col-sm-3">
-                      <!-- text input -->
-                      <div class="form-group">
-                         <label>Quantity</label>
-                        <input type="number" class="form-control" placeholder="Enter ..." >
-                     </div>
-                 </div>
-                    
-              </div> 
-
-  
-
-                   <!--------------------TOMBOL DELETE------------------->
-                   <a href="javascript:void(0);"button type="button" name="add" id="remove" class="btn btn-danger" title="Remove"><i class="fas fa-minus"></i></button></a> 
-                 </div>
-                 </div>
-               </div>
-             </div>
-            <!--------------------------TOMBOL ADD------------------------------->  
-            <a href="javascript:void(0);"button type="button" title="Add"  name="add" id="add_button" class="btn btn-success back-to-top" style="margin-bottom: 53%; margin-right:-0%; position: absolute;"><i class="fas fa-plus"></i></button></a>
-                    
-               <!-------------------------------------------------------------> 
-              <div class="row">
-                <div class="col-sm-5">
-                      <!-- textfield -->
-                      <div class="form-group">
-                        <label>Total Harga</label>
-                        <output class="form-control" rows="3" placeholder="" name="total_harga" id="total_harga"></output>     
-                      </div>
-                      
-               </div>
-              </div>
-                    
-                  <div class="row">
-                    <div class="col-sm-11">
-                      <!-- textfield -->
-                      <div class="form-group">
-                        <label>Keterangan</label>
-                        <textarea class="form-control" rows="3" placeholder="Tambah Keterangan ..." name="keterangan"></textarea>
-                      </div>
-                    </div>
-                    </div>
-                  
-                  
-                <!------------TOMBOL FOOTER--------->
-                      
-                      <button type="submit" name="btSubmit" id="btSubmit" class="btn btn-primary" ">Checkout</button>
-                       <a href="/input_penawaran/cetak_pdf" target="_blank" class="btn btn-danger float-right"><i class="fas fa-download"></i> Simpan PDF
-                  </button></a>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-  </div>
-              <!-------------/card-body ------------->
-              
-                
-                 
-                
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
+                    @yield('content')
+                </body>
+            <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0-rc.5
     </div>
     <strong>Copyright &copy; 2019 <a href="http://fasyasolusindo.com">Fasyapratamasolusindo.com</a>.</strong> All rights
     reserved.
   </footer>
+        
+    </div>
+</html>
 
-@endsection
+<style type="text/css">
+        .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat:repeat;
+    background-image:
+        linear-gradient(to bottom, rgb(6, 18, 20, 0.52), rgb(51, 133, 255, 0.6)),
+        url('../../img/bg-login.jpg');
+        
+        background-size: cover;
+    }
 
-@section('footer')
-<!--------------------AUTOFILL----------------->
-<script type="text/javascript">
-  $('#pilih_barang').change(function() {
-  $.ajax({
-    url: '/Produk/' + $(this).val(),
-    type: 'get',
-    response: {},
-    success: function(response) {
-      if (response.success == true) {
-        $('#pilih_barang').value = response.fill;
-      } else {
-        alert('Cannot find price');
-      }
+    .login-box-msg {
+    transform: translateY(35%);
+    }
 
-    },
-    error: function(jqXHR, textStatus, errorThrown) {}
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-   $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-    })
-</script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    //group add limit
-    var maxGroup = 10;
-    
-    //add more fields group
-    $("#add_button").click(function(){
-        if($('body').find('.form-control select2').length < maxGroup){
-            var fieldHTML = '<div class=" select2Copy">'+$(".field").html()+'</div>';
-            $('body').find('.field:last').after(fieldHTML);
-        }else{
-            alert('Maximum '+maxGroup+' groups are allowed.');
-        }
-    });
-     //remove fields group
-    $("body").on("click","#remove",function(){ 
-        $(this).parents(".select2Copy").remove();
-    });
-});
-</script>
-
-<script type="text/javascript">
-  function getTotal(){
-    var total_harga = 0;
-    $('#sum').each(function(){
-        total += parseFloat(this.innerHTML)
-    });
-    $('#total_harga').text(total_harga);
-}
-
-getTotal();
-
-$('.quantity').keyup(function(){
-    var parent = $(this).parents('row');
-    var price = $('#harga_barang', parent);
-    var sum = $('#sum', parent);
-    var value = parseInt(this.value) * parseFloat(price.get(0).innerHTML||0);
-    sum.text(value);
-    getTotal();
-})
-</script>
-@endsection
+    .card{
+      opacity: 90%;
+    }
+</style>
