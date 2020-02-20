@@ -3,20 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Aset;
+use App\Kategori;
+use App\User;
 
 
 class KategoriController extends Controller
 {
 
     public function index(){
-        $kategori = Aset::all();
+        $kategori = Kategori::all();
         return view('kategori', compact('kategori'));
     }
 
-    public function detail($id){
-        $test = Aset::find($id);
-        return view('detail',['test' => $test]);
+    public function input_kategori(Request $request){
+        $kategori = new Kategori();
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+        return redirect('/kategori');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
 }

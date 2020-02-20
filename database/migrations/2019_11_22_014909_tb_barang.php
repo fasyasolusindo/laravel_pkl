@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAsetTable extends Migration
+class TbBarang extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAsetTable extends Migration
      */
     public function up()
     {
-        Schema::create('aset', function (Blueprint $table) {
+        Schema::create('tb_barang', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_barang');
+            $table->integer('jumlah_barang');
+            $table->integer('harga_barang');
             $table->string('kategori');
-            $table->string('nama_aset');
-            $table->integer('jumlah_aset');
             $table->string('img');
             $table->timestamps();
         });
@@ -30,7 +31,6 @@ class CreateAsetTable extends Migration
      */
     public function down()
     {
-        Schema::drop('aset');
-
+        Schema::drop('tb_barang');
     }
 }

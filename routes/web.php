@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('/test', 'ContohController@index');
@@ -23,17 +23,13 @@ Route::get('/orders', 'ContohController@input_orders');
 
 Route::get('/produk', 'ProdukController@index');
 Route::post('/produk_post', 'ProdukController@input_produk')->name('input_produk');
-// Route::get('/produk', 'ProdukController@input_produk');
 
 Route::get('/customer', 'CustomerController@index');
 Route::post('/customer_post', 'CustomerController@input_customer')->name('input_customer');
-// Route::get('/customer', 'CustomerController@input_customer');
 
 Route::get('/order', 'OrderController@index');
 Route::post('/order_post', 'OrderController@input_order')->name('input_order');
-// Route::get('/order', 'OrderController@input_order');
 
-Route::get('/inventory', 'InventoryController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -41,13 +37,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/barang', 'BarangController@index');
 Route::post('/barang_post', 'BarangController@input_barang')->name('input_barang');
 
-Route::get('/aset', 'AsetController@index');
-Route::post('/aset_post', 'AsetController@input_aset')->name('input_aset');
-
-Route::get('/inventory/{id}/edit', 'InventoryController@edit');
-Route::post('/inventory/{id}/update', 'InventoryController@update');
-Route::get('/inventory/{id}/delete', 'InventoryController@delete');
-
 Route::get('/kategori', 'KategoriController@index');
+Route::post('/kategori_post', 'KategoriController@input_kategori')->name('input_kategori');
 
-Route::get('/kategori/{id}/detail', 'KategoriController@detail');
+Route::get('/checkin', 'PinjamController@checkin');
+Route::post('/checkin_post', 'PinjamController@check_in')->name('check_in');
+
+Route::get('/checkout', 'PinjamController@checkout');
+Route::get('/checkout/{id}/delete', 'PinjamController@delete');
+
+Route::get('/status', 'PinjamController@status');

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Barang extends Model
 {
-    protected $table = "barang";
-    protected $fillable = ['nama_barang', 'jumlah_barang', 'harga_barang', 'kategori'];
+    protected $table = "tb_barang";
+    protected $fillable = ['nama_barang', 'jumlah_barang', 'harga_barang', 'kategori','img'];
 
-    public function aset(){
-        return $this->belongsTo(Aset::class,'kategori');
+    public function pinjam(){
+        return $this->hasMany(Pinjam::class);
     }
 
 }

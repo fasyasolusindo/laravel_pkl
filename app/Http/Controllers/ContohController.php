@@ -35,4 +35,5 @@ class ContohController extends Controller
         return "success";
         
     }
+
 }
